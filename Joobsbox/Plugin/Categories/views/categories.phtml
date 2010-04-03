@@ -1,0 +1,32 @@
+<h1 class="dashboard-title"><?php echo $this->translate("Categories"); ?></h1>
+<div id="tree-controls">
+	<a id="createNewNode"><?php echo $this->translate('Create category'); ?></a>
+	<a id="deleteNode"><?php echo $this->translate('Delete category'); ?></a>
+	<a id="saveConfiguration"><?php echo $this->translate("Save"); ?></a>
+	<span id="info">&nbsp;</span>
+	<div style="clear:both"></div>
+</div>
+
+<div id="categ-wrapper">
+  <ul id="categories">
+    <?php foreach($this->categories->filterRootNodes() as $index => $category): ?>
+		<li class="editable" id="existing_<?php echo $category['id']; ?>"><?php echo $category['name']; ?></li>
+		<?php endforeach; ?>
+  </ul>
+</div>
+
+<div id="instructions">
+	<h2><?php echo $this->translate('Instructions'); ?></h2>
+	<p>
+		<?php echo $this->translate(
+			'To reorder categories, simply drag and drop them.<br/>
+			To create a new category, click "Create category".<br/>
+			To rename a category, just click it and modify its text.<br/>
+		'); ?>
+	</p>
+</div>
+
+<?php
+	$this->css->load(array('categories.css', 50));
+	$this->js->load('jquery.jeditable.mini.js', 'jquery.json-1.3.min.js', 'categories.js');
+?>

@@ -1,0 +1,46 @@
+<?php
+/**
+ * @package Joobsbox_Themes
+ * @category Joobsbox
+ * @author Valentin Bora <contact@valentinbora.com>
+ * @version 1.0
+ * @copyright  Copyright (c) 2009 Joobsbox. (http://www.joobsbox.com)
+ * @license	   http://www.joobsbox.com/joobsbox-php-license
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<?php 
+	$this->doctype('XHTML1_TRANSITIONAL');
+	$this->headTitle($this->conf->general->common_title);
+	$this->headTitle()->setSeparator(' - ');
+	echo $this->headTitle();
+	echo $this->headMeta();
+?>
+
+<?php
+	$this->css->load("global.css", "login.css");
+	$this->asset->load('jquery', 'jquery-corner', 'jquery-pngfix');
+	$this->js->write($this->translateHash);
+	$this->js->load('functions.js', 'global.js', 'login.js');
+
+	echo $this->headLink();
+	echo $this->headStyle();
+?>
+
+</head>
+<body>
+	<div id="wrapper">
+		<div id="joobsbox-main">
+			<?php echo $this->layout()->content;?>
+			<div id="joobsbox-license">
+				powered by <a href="http://www.joobsbox.com" rel="external" target="_blank">joobsbox</a> + <a href="http://www.joobs.ro" rel="external" target="_blank">joobs.ro</a> + <a href="http://framework.zend.com" rel="external" target="_blank">zend framework</a>
+			</div>
+		</div>
+	</div>
+	<?php echo $this->headScript(); ?>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<?php
+/**
+ * @package Joobsbox_Themes
+ * @category Joobsbox
+ * @author Valentin Bora <contact@valentinbora.com>
+ * @version 1.0
+ * @copyright  Copyright (c) 2009 Joobsbox. (http://www.joobsbox.com)
+ * @license	   http://www.joobsbox.com/joobsbox-php-license
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<?php 
+	$this->doctype('XHTML1_TRANSITIONAL');
+	$this->headTitle($this->conf->general->common_title);
+	$this->headTitle()->setSeparator(' - ');
+	
+	echo $this->headTitle();
+	echo $this->headMeta();
+?>
+
+<?php
+	$this->css->load('global.css');
+	$this->headScript()->prependScript('var baseUrl="' . $this->baseUrl() . '";', 'text/javascript', array('charset' => 'UTF-8'));
+	$this->headScript()->prependScript($this->translateHash, 'text/javascript', array('charset' => 'UTF-8'));
+	$this->asset->load('jquery', 'jquery-corner', 'jquery-pngfix');
+	$this->js->load('public/js/functions.js', 'public/js/global.js');
+	
+	// Link the main RSS file
+  $this->headLink()->appendAlternate($this->baseUrl . '/rss', 'application/rss+xml', $this->conf->general->common_title . ' RSS');
+  // Favicon
+  $this->headLink()->headLink(array('rel' => 'shortcut icon', 'href' => $this->baseUrl . '/favicon.ico'));
+  $this->headLink()->headLink(array('rel' => 'icon', 'href' => $this->baseUrl . 'favicon.ico'));
+  
+  echo $this->filter('head_html');
+  
+	echo $this->headLink();
+	echo $this->headStyle();
+?>
+
+</head>
+<body>
+	<div id="wrapper">
+		<div id="joobsbox-main">
+		  <?php echo $this->render('header.phtml');?>
+			<?php echo $this->layout()->content;?>
+			<?php echo $this->render('footer.phtml'); ?>
+	</div>
+	<?php echo $this->headScript(); ?>  
+</body>
+</html>

@@ -1,0 +1,69 @@
+<?php
+/**
+ * @package Joobsbox_Themes
+ * @category Joobsbox
+ * @author Valentin Bora <contact@valentinbora.com>
+ * @version 1.0
+ * @copyright  Copyright (c) 2009 Joobsbox. (http://www.joobsbox.com)
+ * @license	   http://www.joobsbox.com/joobsbox-php-license
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<?php 
+	$this->headTitle($this->conf->general->common_title);
+	$this->headTitle()->setSeparator(' - ');
+	echo $this->headTitle();
+?>
+
+<?php
+	$this->css->load('global.css', 'install.css');
+	$this->asset->load('jquery', 'jquery-corner', 'jquery-pngfix', 'jquery-validation');
+	$this->headScript()->prependScript($this->translateHash, 'text/javascript', array('charset' => 'UTF-8'));
+	$this->js->load('/public/js/functions.js', '/public/js/global.js', 'install.js');
+  
+	echo $this->headLink();
+	echo $this->headStyle();
+?>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="joobsbox-main">
+			<div id="joobsbox-header"></div>
+			<?php echo $this->layout()->content;?>
+			<div id="joobsbox-footer">
+				<a href="http://framework.zend.com/">
+					<img src="<?php echo $this->themeImages; ?>/PoweredBy_ZF_4LightBG.png" border="0">
+				</a>
+				<!--
+				<a href="http://www.joobs.ro">
+					<img src="<?php echo $this->themeImages; ?>/powered-by-joobs.ro.gif" alt="POWERED BY Joobs.ro" />
+				</a>
+				-->
+			</div>
+		</div>
+	</div>
+	<?php echo $this->headScript(); ?>
+	<script type="text/javascript" charset="utf-8">
+        var is_ssl = ("https:" == document.location.protocol);
+        var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+        document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+      </script>
+
+      <script type="text/javascript" charset="utf-8">
+        var feedback_widget_options = {};
+
+        feedback_widget_options.display = "overlay";  
+        feedback_widget_options.company = "joobsbox";
+        feedback_widget_options.placement = "right";
+        feedback_widget_options.color = "#222";
+        feedback_widget_options.style = "idea";
+
+        var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+      </script>
+  
+</body>
+</html>

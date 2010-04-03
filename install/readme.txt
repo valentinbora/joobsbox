@@ -1,0 +1,1 @@
+There is no actual install folder. JoobsBox reads the url and actually goes to Joobsbox/Controllers/InstallController.php. This works with mod_rewrite activated and allowed for the joobsbox installation folder.

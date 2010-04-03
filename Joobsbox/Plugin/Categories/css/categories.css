@@ -1,0 +1,104 @@
+/* ========================================= */
+/* = Categories admin plugin main css file = */
+/* ========================================= */
+
+div#tree-controls	{
+  clear: both; 
+  text-align: left; 
+  width: 100%; 
+  margin: 10px; 
+  background-color: #333333; 
+  color: #EEE;
+  background-position: left top; 
+  background-repeat: repeat-x; 
+  padding: 25px 5px 20px 25px; 
+  position: relative; 
+  border-bottom: 4px solid #b5b5b5;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  -moz-border-radius-topleft: 15px;
+  -moz-border-radius-bottomleft: 15px;
+  -webkit-border-top-left-radius: 15px;
+  -webkit-border-bottom-left-radius: 15px;
+}
+
+div#tree-controls a	{
+  cursor: pointer; 
+  background-repeat: no-repeat; 
+  background-position: 3px 50%; 
+  padding: 5px 5px 7px 30px; 
+  height: 22px; 
+  width: 35%
+}
+
+div#tree-controls a:hover				{text-decoration: underline;}
+div#tree-controls a#createNewNode		{background-image: url('../images/icons/add_20.png');}
+div#tree-controls a#renameNode			{background-image: url('../images/icons/rename_20.png');}
+div#tree-controls a#deleteNode			{background-image: url('../images/icons/delete_20.png');}
+div#tree-controls a#saveConfiguration 	{width: auto; background-image: url('../images/icons/save_24.png');}
+	
+#categ-wrapper {
+  width: 100%; 
+  display: block; 
+  margin: 10px; 
+  padding: 25px 5px 20px 25px;
+} 	
+
+#categ-wrapper ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 5px;
+  border-left: 1px dotted #CCC;
+}
+
+#categ-wrapper ul li {
+  list-style: none;
+  padding: 10px 12px;
+  margin: 2px 0;
+  width: 430px;
+  font-weight: bold;
+  display: block;
+  background-color: #F8F1D2;
+  background-image: url('../images/categories_24.png');
+  background-position: 2% 50%;
+  background-repeat: no-repeat;
+  padding-left: 45px;
+}   
+
+#currently-edited-input {
+  width: 100%;
+}
+
+#info {
+  line-height: 25px;
+  padding: 5px;
+  border: 1px dotted #CCC;
+  font-weight: bold;
+  display: none;
+  color: #000;
+  background-color: #F8F1D2;
+}
+
+.attention {
+  background-color: #49473E;
+}
+
+#categ-wrapper ul li.selected {
+  border: 3px solid #DBC976;
+}
+
+#categ-wrapper ul li a:link, #categ-wrapper ul li a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+div#instructions {
+  clear: both; 
+  font-size: 90%; 
+  padding: 10px 5px;
+}
+
+.dialog	{display: none;}
+
+/* Dashboard */
+h1.dashboard-title {background-image: url('../images/icons/tabs_48.png');}
